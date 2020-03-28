@@ -40,10 +40,10 @@ if ( GetCurrentHitPoints ( oPlayer ) > GetMaxHitPoints ( oPlayer ) )
 }
 
 // wrong char id - should be booted by the mod onentry event script
-if ( ! GetIsSameChar ( oPlayer ) )
-{
-  return 1;
-}
+// if ( ! GetIsSameChar ( oPlayer ) )
+// {
+//   return 1;
+// }
 
 //check weired combos , like shifter witout a druid , a arcane-acher without any
 //arcane. Check if required class is select first
