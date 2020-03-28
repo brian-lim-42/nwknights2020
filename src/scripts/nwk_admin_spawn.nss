@@ -1,0 +1,9 @@
+#include "nwk_admin"
+
+void main()
+{
+    SetListening(OBJECT_SELF,TRUE);
+    SetListenPattern(OBJECT_SELF,BOOT_CHARACTER_PREFIX+"**",BOOT_CHARACTER_INT);
+    SetListenPattern(OBJECT_SELF,DUMP_CHARACTER_PREFIX+"**",DUMP_CHARACTER_INT);
+    SetListenPattern(OBJECT_SELF,ABUSE_CHARACTER_PREFIX+"**",ABUSE_CHARACTER_INT);
+}
