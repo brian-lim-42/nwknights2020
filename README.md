@@ -14,6 +14,14 @@ Will create build instructions when process confirmed, will probably need to use
 
 Copy Aurora Toolset scripts, modules/temp0 directory while game editor is running
 
+# Hosting
+
+(TODO) Not possible yet without full game module
+
+See https://hub.docker.com/r/beamdog/nwserver/ and https://github.com/nwnxee/unified for Docker images
+
+See https://web.archive.org/web/20110606112704/http://nwn.bioware.com/builders/winserver3.html for legacy information
+
 # License
 
 Various, some scripts copyright Bioware
