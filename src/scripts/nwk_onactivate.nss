@@ -8,8 +8,19 @@ void main()
     string sItemTag = GetTag(oItem);
     object oPC = GetItemActivator();
 
-
-    if (sItemTag == "ktHealingKit" || sItemTag == "ktHealingKit")
+    if (sItemTag == "ktOffenseCloak") {
+        object oTarget = GetItemActivatedTarget();
+        ActionCastSpellAtObject(SPELL_BULLS_STRENGTH, oTarget, METAMAGIC_MAXIMIZE);
+    }
+    else if (sItemTag == "ktArcherCloak") {
+        object oTarget = GetItemActivatedTarget();
+        ActionCastSpellAtObject(SPELL_CATS_GRACE, oTarget, METAMAGIC_MAXIMIZE);
+    }
+    else if (sItemTag == "ktDefenseCloak") {
+        object oTarget = GetItemActivatedTarget();
+        ActionCastSpellAtObject(SPELL_ENDURANCE, oTarget, METAMAGIC_MAXIMIZE);
+    }
+    else if (sItemTag == "ktHealingKit" || sItemTag == "ktHealingKit")
     {
         //Declare major variables
         object oTarget = GetItemActivatedTarget();
