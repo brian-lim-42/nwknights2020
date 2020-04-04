@@ -2,6 +2,14 @@
 #include "nwk_colors"
 #include "nwk_flag"
 
+// repeatedly cast the spell multiple times because METAMAGIC_MAXIMIZE doesn't work
+void castSpellRepeat(object oActionSubject, int nSpell, object oTarget, int times) {
+    int i;
+    for (i = 0; i < times; i++) {
+        AssignCommand(oActionSubject, ActionCastSpellAtObject(nSpell, oTarget, METAMAGIC_NONE, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+    }
+}
+
 void main()
 {
     object oItem = GetItemActivated();
@@ -10,15 +18,11 @@ void main()
 
     if (sItemTag == "ktOffenseCloak") {
         object oTarget = GetItemActivatedTarget();
-        ActionCastSpellAtObject(SPELL_BULLS_STRENGTH, oTarget, METAMAGIC_MAXIMIZE);
+        castSpellRepeat(oPC, SPELL_BULLS_STRENGTH, oTarget, 20);
     }
     else if (sItemTag == "ktArcherCloak") {
         object oTarget = GetItemActivatedTarget();
-        ActionCastSpellAtObject(SPELL_CATS_GRACE, oTarget, METAMAGIC_MAXIMIZE);
-    }
-    else if (sItemTag == "ktDefenseCloak") {
-        object oTarget = GetItemActivatedTarget();
-        ActionCastSpellAtObject(SPELL_ENDURANCE, oTarget, METAMAGIC_MAXIMIZE);
+        castSpellRepeat(oPC, SPELL_CATS_GRACE, oTarget, 20);
     }
     else if (sItemTag == "ktHealingKit" || sItemTag == "ktHealingKit")
     {
@@ -86,3 +90,4 @@ void main()
     ExecuteScript ( "a_" + sItemTag, oPC );
 
 }
+
