@@ -1,6 +1,6 @@
 # NWKnights 2020
 
-Neverwinter Knights EE PvP modification Neverwinter Knights
+Neverwinter Nights EE PvP modification Neverwinter Knights
 
 Purchase the game from https://www.gog.com/ or Steam
 
