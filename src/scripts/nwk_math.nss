@@ -17,3 +17,14 @@ int mod10(int x)
     string reminder=GetStringRight(st,1);
     return StringToInt(reminder);
 }
+
+int bound(int value, int lBound, int uBound) {
+    if (value > uBound) {
+        return uBound;
+    }
+    else if (value < lBound) {
+        return lBound;
+    }
+    return value;
+}
+

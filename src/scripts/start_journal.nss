@@ -61,12 +61,15 @@ void main()
 
 
         object oGuardian = GetObjectByTag ("EntryGuardian");
+        object bGuardian = GetObjectByTag ("BuildGuardian");
         string sNameTag = GetPCPlayerName (oPC);
         string sSound = "vs_ncelestf_hi";
         vector oDirection = GetPosition (oPC);
         DelayCommand (2.0, AssignCommand (oGuardian, SetFacingPoint (oDirection)));
         DelayCommand (2.0, AssignCommand (oGuardian, ActionPlayAnimation (ANIMATION_FIREFORGET_BOW, 1.0)));
         DelayCommand (2.0, AssignCommand (oGuardian, SpeakString(ColorString("Welcome to NWKnights!" +
+                                                                  "\n"+sNameTag,COLOR_LIGHT_BLUE))));
+        DelayCommand (2.0, AssignCommand (bGuardian, SpeakString(ColorString("Default NWN Builds" +
                                                                   "\n"+sNameTag,COLOR_LIGHT_BLUE))));
         DelayCommand (2.0, AssignCommand (oGuardian, PlaySound (sSound)));
 

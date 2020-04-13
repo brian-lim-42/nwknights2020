@@ -2,6 +2,7 @@
 #include "nwk_const_teams"
 #include "nwk_constants"
 #include "nwk_colors"
+#include "nwk_faction"
 
 //local variable of PC : lastAction
 string VARNAME_LAST_ACTION = "lastAction";
@@ -223,19 +224,23 @@ void ChangeTeam(object oPC)
     // determine if he was the leader of old party
     if (isTeamLeader(oPC))
     {
-        RemoveFromParty(oPC);
-        SetNewTeamLeader(sTeam, oPC);
+       RemoveFromParty(oPC);
+       SetNewTeamLeader(sTeam, oPC);
     }
     else
     {
-        RemoveFromParty(oPC);
+       RemoveFromParty(oPC);
     }
 
    //join the new party
    if (sTeam=="SILVER")
+   {
         joinParty("GOLD",oPC);
+   }
    else if (sTeam=="GOLD")
-       joinParty("SILVER",oPC);
+   {
+        joinParty("SILVER",oPC);
+   }
 
    assignLastActionOfAllPartyMembers("GOLD");
    assignLastActionOfAllPartyMembers("SILVER");
@@ -255,6 +260,10 @@ void joinParty(string sTeam,object oPC)
 
     if (sTeam == "SILVER")
     {
+
+            SpeakString("Adjusting to like Silver", TALKVOLUME_SHOUT);
+            changeFaction(oPC, "SI_Faction", "GF_Faction");
+
             Leader = GetLocalObject(GetModule(), "oSilverLeader");
             SetLocalString (oPC, "team", "SILVER" );
 
@@ -265,6 +274,10 @@ void joinParty(string sTeam,object oPC)
     }
     else if (sTeam == "GOLD")
     {
+
+            SpeakString("Adjusting to like Gold", TALKVOLUME_SHOUT);
+            changeFaction(oPC, "GF_Faction", "SI_Faction");
+
             Leader = GetLocalObject(GetModule(), "oGoldLeader");
             SetLocalString (oPC, "team", "GOLD" );
 
