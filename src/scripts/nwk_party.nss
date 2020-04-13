@@ -261,7 +261,6 @@ void joinParty(string sTeam,object oPC)
     if (sTeam == "SILVER")
     {
 
-            SpeakString("Adjusting to like Silver", TALKVOLUME_SHOUT);
             changeFaction(oPC, "SI_Faction", "GF_Faction");
 
             Leader = GetLocalObject(GetModule(), "oSilverLeader");
@@ -275,7 +274,6 @@ void joinParty(string sTeam,object oPC)
     else if (sTeam == "GOLD")
     {
 
-            SpeakString("Adjusting to like Gold", TALKVOLUME_SHOUT);
             changeFaction(oPC, "GF_Faction", "SI_Faction");
 
             Leader = GetLocalObject(GetModule(), "oGoldLeader");
